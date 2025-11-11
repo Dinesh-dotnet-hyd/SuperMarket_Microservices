@@ -19,7 +19,7 @@ namespace Order_MS.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateOrder(int productId, int quantity)
         {
-            var product = await _client.GetFromJsonAsync<ProductDto>($"http://localhost:5043/api/Product/{productId}");
+            var product = await _client.GetFromJsonAsync<ProductDto>($"http://localhost:5020/Product/{productId}");
             if(product == null ) return NotFound(" Product Not Available");
             var total = product.Price * quantity;
             var order = new Orders { ProductId=productId, Quantity=quantity, TotalAmount=total};

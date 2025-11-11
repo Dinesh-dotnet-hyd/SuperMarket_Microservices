@@ -1,43 +1,75 @@
 {
+
   "Routes": [
+
     {
-      "DownstreamPathTemplate": "/api/products",
-      "DownstreamScheme": "https",
+
+      "DownstreamPathTemplate": "/api/Product",
+
+      "DownstreamScheme": "http",
+
+      "DownstreamHostAndPorts": [
+
+        {
+
+          "Host": "localhost",
+
+          "Port": 5043
+
+        }
+
+      ],
+
+      "UpstreamPathTemplate": "/Product",
+
+      "UpstreamHttpMethod": [ "Get", "Post" ]
+
+    },
+    {
+      "DownstreamPathTemplate": "/api/Product/{id}",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
           "Port": 5043
         }
       ],
-      "UpstreamPathTemplate": "/products",
-      "UpstreamHttpMethod": [ "Get", "Post" ]
+      "UpstreamPathTemplate": "/Product/{id}",
+      "UpstreamHttpMethod": [ "GET" ]
     },
+
     {
-      "DownstreamPathTemplate": "/api/orders",
-      "DownstreamScheme": "https",
+
+      "DownstreamPathTemplate": "/api/Order",
+
+      "DownstreamScheme": "http",
+
       "DownstreamHostAndPorts": [
+
         {
+
           "Host": "localhost",
+
           "Port": 5154
+
         }
+
       ],
-      "UpstreamPathTemplate": "/orders",
+
+      "UpstreamPathTemplate": "/Order",
+
       "UpstreamHttpMethod": [ "Post" ]
+
     }
-    //{
-    //  "DownstreamPathTemplate": "/api/bills",
-    //  "DownstreamScheme": "https",
-    //  "DownstreamHostAndPorts": [
-    //    {
-    //      "Host": "localhost",
-    //      "Port": 5003
-    //    }
-    //  ],
-    //  "UpstreamPathTemplate": "/bills",
-    //  "UpstreamHttpMethod": [ "Get", "Post" ]
-    //}
+
   ],
+
   "GlobalConfiguration": {
-    "BaseUrl": "https://localhost:5020"
+
+    "BaseUrl": "http://localhost:5020"
+
   }
+
 }
+
+ 
